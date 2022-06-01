@@ -1,0 +1,7 @@
+require('idoliki/telescope')
+require('idoliki/lightline')
+require('idoliki/gitsigns')
+require('idoliki/lsp')
+require('idoliki/treesitter')
+require('idoliki/null-ls')
+require('idoliki/toggleterm')
