@@ -50,11 +50,13 @@ Plug 'onsails/lspkind-nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " -- Treesitter, syntax highligh
 Plug 'windwp/nvim-ts-autotag' " -- For autoclosing tags
 Plug 'preservim/nerdtree' " - File tree
-Plug 'tpope/vim-commentary' " - For commenting gcc & gc
 Plug 'jose-elias-alvarez/null-ls.nvim' " for formatters and linter
 Plug 'akinsho/toggleterm.nvim'
+" Commenting
+Plug 'numToStr/Comment.nvim' " -- Easy comment stuff
+Plug 'JoosepAlviste/nvim-ts-context-commentstring' " -- Comment JSX
+Plug 'mattn/emmet-vim' " Emmet plugin
 call plug#end()
-
 
 
 
@@ -67,7 +69,8 @@ lua require('idoliki')
 
 " remaps
 nnoremap <C-p> :Telescope git_files<Cr>
-nnoremap <C-f> :Telescope file_browser path=%:p:h<Cr>
+" nnoremap <C-f> :Telescope live_grep path=%:p:h<Cr>
+nnoremap <C-f> :Telescope live_grep<Cr>
 " nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -77,6 +80,10 @@ nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 
 " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
+" Emmet shortcuts
+let g:user_emmet_leader_key=','
+
 
 let g:airline_fonts = 1
 
@@ -93,7 +100,6 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-
 " Neoformat -- Prettier setup
 " let g:neoformat_try_node_exe = 1
 " let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
